@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+ #!/usr/bin/env bash
 
 # 1. Parse command line arguments
 # 2. cd to the test directory
@@ -146,6 +146,7 @@ cd $test_data_dir
 test_stdout_exit "$test_program one_sequence.fasta" one_sequence.fasta.expected 0
 test_stdout_exit "$test_program two_sequence.fasta" two_sequence.fasta.expected 0
 test_stdout_exit "$test_program --minlen 200 two_sequence.fasta" two_sequence.fasta.minlen_200.expected 0
+test_stdout_exit "$test_program --maxlen 200 < two_sequence.fasta" two_sequence.fasta.maxlen_200.stdin.expected 0
 test_stdout_exit "$test_program --minlen 200 < two_sequence.fasta" two_sequence.fasta.minlen_200.stdin.expected 0
 test_stdout_exit "$test_program empty_file" empty_file.expected 0
 # Test when --minlen filters out ALL sequences (empty result)
